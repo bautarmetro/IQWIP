@@ -9,6 +9,9 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
 
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- Google Fonts: Playfair Display for editorial serif & Plus Jakarta Sans for clean body text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +21,38 @@
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#D91C28',       /* Signature red header tag & cornmeal banner */
+              redHover: '#B91520',
+              accentRed: '#D91C28', /* Accent red for Why IQ */
+              riceYellow: '#D8C3A0', /* Rice banner rgb(216 195 160) */
+              sugarBrown: '#CE9246', /* Demerara sugar banner rgb(206 146 70) */
+              cornRed: '#F4C629',    /* Corn meal banner rgb(244 198 41) */
+              grainsGold: '#B7824E', /* Grains banner rgb(183 130 78) */
+              tagBg: '#FFFFFF',
+              darkPantry: '#0C1713', /* Dark green-black for Why IQ section */
+              pantryText: '#E6C687', /* Warm gold text */
+              creamBg: '#FAF7F2',    /* Off-white warm pantry background */
+              cardBg: '#FAF8F5',
+              cardBorder: '#E5DEC9',
+              footerBg: '#121212',
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="styles/style.css">
@@ -36,18 +71,54 @@
           class="h-16 sm:h-20 lg:h-24 w-auto object-contain transition-all duration-300 group-hover:scale-105 drop-shadow">
       </a>
 
-      <!-- Navigation links & CTA -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <!-- Desktop Navigation links & CTA -->
+      <div class="hidden sm:flex items-center gap-2 sm:gap-3">
         <a href="#products"
-          class="nav-link px-4 sm:px-5 py-2 text-center text-xs font-bold uppercase tracking-wider text-white drop-shadow-sm rounded-full border border-transparent hover:bg-white/30 hover:border-white/40 hover:backdrop-blur-sm hover:text-brand-red transition-all duration-200 transform hover:-translate-y-0.5 hidden sm:inline-block">Products</a>
+          class="nav-link px-4 sm:px-5 py-2 text-center text-xs font-bold uppercase tracking-wider text-white drop-shadow-sm rounded-full border border-transparent hover:bg-white/30 hover:border-white/40 hover:backdrop-blur-sm hover:text-brand-red transition-all duration-200 transform hover:-translate-y-0.5">Products</a>
+        <a href="#where-to-find-us"
+          class="nav-link px-4 sm:px-5 py-2 text-center text-xs font-bold uppercase tracking-wider text-white drop-shadow-sm rounded-full border border-transparent hover:bg-white/30 hover:border-white/40 hover:backdrop-blur-sm hover:text-brand-red transition-all duration-200 transform hover:-translate-y-0.5">Where to Buy</a>
         <a href="#about"
-          class="nav-link px-4 sm:px-5 py-2 text-center text-xs font-bold uppercase tracking-wider text-white drop-shadow-sm rounded-full border border-transparent hover:bg-white/30 hover:border-white/40 hover:backdrop-blur-sm hover:text-brand-red transition-all duration-200 transform hover:-translate-y-0.5 hidden sm:inline-block">About Us</a>
+          class="nav-link px-4 sm:px-5 py-2 text-center text-xs font-bold uppercase tracking-wider text-white drop-shadow-sm rounded-full border border-transparent hover:bg-white/30 hover:border-white/40 hover:backdrop-blur-sm hover:text-brand-red transition-all duration-200 transform hover:-translate-y-0.5">About Us</a>
         <a href="#contact"
           class="sm:ml-5 px-5 sm:px-6 py-2 text-center bg-brand-red hover:bg-brand-redHover text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-sm transition-all transform hover:-translate-y-0.5">
           Contact
         </a>
       </div>
 
+      <!-- Mobile Hamburger Button & Quick Contact CTA -->
+      <div class="flex items-center gap-2 sm:hidden">
+        <a href="#contact"
+          class="px-3.5 py-1.5 bg-brand-red hover:bg-brand-redHover text-white rounded-full text-[11px] font-bold uppercase tracking-wider shadow-sm">
+          Contact
+        </a>
+        <button id="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-white/90 border border-neutral-300/80 text-neutral-900 shadow-sm transition-transform active:scale-95 focus:outline-none">
+          <i id="mobile-menu-icon" class="fa-solid fa-bars text-sm"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Slide-down Navigation Panel -->
+    <div id="mobile-menu"
+      class="hidden sm:hidden absolute top-full left-0 w-full bg-[#FAF7F2] border-b border-[#E2D9CC] shadow-xl transition-all duration-300">
+      <nav class="max-w-7xl mx-auto px-6 py-4 flex flex-col">
+        <a href="#products"
+          class="mobile-nav-link py-3 px-3 text-sm font-bold uppercase tracking-wider text-neutral-900 hover:text-brand-red hover:bg-neutral-100/70 rounded-md transition-colors flex items-center justify-between border-b border-neutral-200/60">
+          <span>Products</span>
+          <i class="fa-solid fa-chevron-right text-xs text-neutral-400"></i>
+        </a>
+        <a href="#where-to-find-us"
+          class="mobile-nav-link py-3 px-3 text-sm font-bold uppercase tracking-wider text-neutral-900 hover:text-brand-red hover:bg-neutral-100/70 rounded-md transition-colors flex items-center justify-between border-b border-neutral-200/60">
+          <span>Where to Buy</span>
+          <i class="fa-solid fa-chevron-right text-xs text-neutral-400"></i>
+        </a>
+        <a href="#about"
+          class="mobile-nav-link py-3 px-3 text-sm font-bold uppercase tracking-wider text-neutral-900 hover:text-brand-red hover:bg-neutral-100/70 rounded-md transition-colors flex items-center justify-between">
+          <span>About Us</span>
+          <i class="fa-solid fa-chevron-right text-xs text-neutral-400"></i>
+        </a>
+      </nav>
     </div>
   </header>
 
@@ -106,9 +177,9 @@
             class="bg-brand-red hover:bg-brand-redHover text-white px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
             Browse The Lineup
           </a>
-          <a href="#why-iq"
+          <a href="#where-to-find-us"
             class="bg-neutral-950 hover:bg-black text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shadow-sm hover:shadow-md transition-all transform hover:-translate-y-0.5">
-            Why Island Queen
+            Where to Buy
           </a>
         </div>
 
@@ -267,11 +338,10 @@
       </div>
 
       <!-- 4 Column Products Grid -->
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200/80 p-6 gap-6 sm:gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-6">
 
         <!-- 1: Acassan Corn Meal -->
-        <div class="flex flex-col items-start text-left pt-3 sm:pt-0">
+        <div class="flex flex-col items-start text-left sm:pr-5 sm:pb-6 lg:pr-4 lg:pb-0">
           <div class="h-44 sm:h-52 w-full flex items-center justify-center p-2 relative overflow-hidden">
             <img src="images/products/28oz-Acassan.webp" alt="Acassan Corn Meal"
               class="max-h-full max-w-full object-contain drop-shadow"
@@ -289,7 +359,7 @@
         </div>
 
         <!-- 2: Fine Corn Meal -->
-        <div class="flex flex-col items-start text-left pt-3 sm:pt-0 sm:pl-3">
+        <div class="flex flex-col items-start text-left pt-6 sm:pt-0 sm:pl-5 sm:pb-6 lg:px-4 lg:pb-0 border-t sm:border-t-0 sm:border-l lg:border-t-0 border-neutral-200/80">
           <div class="h-44 sm:h-52 w-full flex items-center justify-center p-2 relative overflow-hidden">
             <img src="images/products/20lb-FineCornMeal.webp" alt="Fine Corn Meal"
               class="max-h-full max-w-full object-contain drop-shadow"
@@ -308,7 +378,7 @@
         </div>
 
         <!-- 3: Coarse Corn Meal -->
-        <div class="flex flex-col items-start text-left pt-3 sm:pt-0 sm:pl-3">
+        <div class="flex flex-col items-start text-left pt-6 sm:pt-6 sm:pr-5 lg:pt-0 lg:px-4 border-t sm:border-t sm:border-l-0 lg:border-t-0 lg:border-l border-neutral-200/80">
           <div class="h-44 sm:h-52 w-full flex items-center justify-center p-2 relative overflow-hidden">
             <img src="images/products/20lb-CoarseCornMeal.webp" alt="Coarse Corn Meal"
               class="max-h-full max-w-full object-contain drop-shadow"
@@ -327,7 +397,7 @@
         </div>
 
         <!-- 4: Yellow Hominy Cracked Corn -->
-        <div class="flex flex-col items-start text-left pt-3 sm:pt-0 sm:pl-3">
+        <div class="flex flex-col items-start text-left pt-6 sm:pt-6 sm:pl-5 lg:pt-0 lg:pl-4 border-t sm:border-t sm:border-l lg:border-t-0 border-neutral-200/80">
           <div class="h-44 sm:h-52 w-full flex items-center justify-center p-2 relative overflow-hidden">
             <img src="images/products/28oz-YellowCrackedCorn.webp" alt="Yellow Hominy Cracked Corn"
               class="max-h-full max-w-full object-contain drop-shadow"
@@ -368,11 +438,10 @@
       </div>
 
       <!-- 4 Column Grains Grid -->
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-neutral-200/80 p-6 gap-6 sm:gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-6">
 
         <!-- 1: Bulgur Wheat -->
-        <div class="flex flex-col items-start text-left pt-3 sm:pt-0">
+        <div class="flex flex-col items-start text-left sm:pr-5 sm:pb-6 lg:pr-4 lg:pb-0">
           <div class="h-44 sm:h-52 w-full flex items-center justify-center p-2 relative overflow-hidden">
             <img src="images/products/20lb-BulgurWheat.webp" alt="Bulgur Wheat"
               class="max-h-full max-w-full object-contain drop-shadow"
@@ -391,7 +460,7 @@
         </div>
 
         <!-- 2: Farina -->
-        <div class="flex flex-col items-start text-left pt-3 sm:pt-0 sm:pl-3">
+        <div class="flex flex-col items-start text-left pt-6 sm:pt-0 sm:pl-5 sm:pb-6 lg:px-4 lg:pb-0 border-t sm:border-t-0 sm:border-l lg:border-t-0 border-neutral-200/80">
           <div class="h-44 sm:h-52 w-full flex items-center justify-center p-2 relative overflow-hidden">
             <img src="images/products/28oz-Farina.webp" alt="Farina Creamy Wheat Cereal"
               class="max-h-full max-w-full object-contain drop-shadow"
@@ -409,7 +478,7 @@
         </div>
 
         <!-- 3: Pitimi (Sorghum / Petit Mil) -->
-        <div class="flex flex-col items-start text-left pt-3 sm:pt-0 sm:pl-3">
+        <div class="flex flex-col items-start text-left pt-6 sm:pt-6 sm:pr-5 lg:pt-0 lg:px-4 border-t sm:border-t sm:border-l-0 lg:border-t-0 lg:border-l border-neutral-200/80">
           <div class="h-44 sm:h-52 w-full flex items-center justify-center p-2 relative overflow-hidden">
             <img src="images/products/28oz-Pitimi.webp" alt="Pitimi Sorghum Petit Mil"
               class="max-h-full max-w-full object-contain drop-shadow"
@@ -427,7 +496,7 @@
         </div>
 
         <!-- 4: Quick Oats -->
-        <div class="flex flex-col items-start text-left pt-3 sm:pt-0 sm:pl-3">
+        <div class="flex flex-col items-start text-left pt-6 sm:pt-6 sm:pl-5 lg:pt-0 lg:pl-4 border-t sm:border-t sm:border-l lg:border-t-0 border-neutral-200/80">
           <div class="h-44 sm:h-52 w-full flex items-center justify-center p-2 relative overflow-hidden">
             <img src="images/products/16oz-QuickOats.webp" alt="Quick Oats"
               class="max-h-full max-w-full object-contain drop-shadow"
@@ -517,44 +586,417 @@
     </div>
   </section>
 
-  <!-- About Us Section -->
-  <section id="about" class="scroll-mt-[61px] sm:scroll-mt-[65px] lg:scroll-mt-[73px] py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+  <!-- Where to Find Us Section -->
+  <section id="where-to-find-us" class="scroll-mt-[61px] sm:scroll-mt-[65px] lg:scroll-mt-[73px] max-w-7xl mx-auto px-4 sm:px-8 py-12 sm:py-16">
 
-      <!-- Left Landscape Photo -->
-      <div class="lg:col-span-6 rounded-none overflow-hidden shadow-lg border border-neutral-300">
-        <picture class="block w-full h-full">
-          <!-- Mobile layout -->
-          <source media="(max-width: 768px)" srcset="images/about-us/about-us-mobile.webp">
-          <!-- Desktop layout -->
-          <source media="(min-width: 769px)" srcset="images/about-us/about-us-desktop.webp">
-          <!-- Fallback -->
-          <img src="images/about-us/about-us-desktop.webp"
-            alt="Island Queen kitchen staples arranged on a rustic table"
-            class="w-full h-72 sm:h-96 object-cover object-center">
-        </picture>
+    <!-- Section Header Block -->
+    <div class="mb-7 pb-3 border-b border-neutral-200">
+      <div class="flex items-center space-x-2 text-brand-red font-bold text-xs uppercase tracking-widest mb-1">
+        <span>Retail Partners</span>
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-neutral-900 font-extrabold tracking-tight">
+        Where to Find Us
+      </h2>
+      <p class="text-neutral-600 text-xs sm:text-sm max-w-2xl leading-relaxed mt-2">
+        Pick up your favorite Island Queen staples at trusted neighborhood supermarkets and local grocers across New York and New Jersey.
+      </p>
+    </div>
+
+    <!-- Store Cards Grid (Compact 4 columns and 3 rows on desktop) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-3.5 lg:gap-4">
+
+      <!-- Store 1: Super Gigante -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              New York, NY
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Super Gigante
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>3815 9th Ave, New York, NY 10034</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Super+Gigante+3815+9th+Ave+New+York+NY+10034"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
       </div>
 
-      <!-- Right Editorial Story Text -->
-      <div class="lg:col-span-6 space-y-4">
+      <!-- Store 2: Palm Tree Marketplace -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
         <div>
-          <span class="text-brand-red font-bold text-xs uppercase tracking-widest">About Us</span>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              Bronx, NY
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Palm Tree Marketplace
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>3717 Boston Rd, Bronx, NY 10466</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Palm+Tree+Marketplace+3717+Boston+Rd+Bronx+NY+10466"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 3: Western Beef Supermarket -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              Ridgewood, NY
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Western Beef Supermarket
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>47-05 Metropolitan Ave, Ridgewood, NY 11385</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Western+Beef+Supermarket+47-05+Metropolitan+Ave+Ridgewood+NY+11385"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 4: SuperFresh Irvington -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              Irvington, NJ
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            SuperFresh Irvington
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>471 Lyons Ave #79, Irvington, NJ 07111</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=SuperFresh+471+Lyons+Ave+79+Irvington+NJ+07111"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 5: Food Universe Marketplace -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              Paterson, NJ
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Food Universe Marketplace
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>498 E 30th St, Paterson, NJ 07504</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Food+Universe+Marketplace+498+E+30th+St+Paterson+NJ+07504"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 6: Amigo Produce Corp -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              New York, NY
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Amigo Produce Corp
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>3842 9th Ave #3844, New York, NY 10034</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Amigo+Produce+Corp+3842+9th+Ave+New+York+NY+10034"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 7: Farm Country of East New York -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              Brooklyn, NY
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Farm Country of East New York
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>2205 Linden Blvd, Brooklyn, NY 11207</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Farm+Country+Supermarket+2205+Linden+Blvd+Brooklyn+NY+11207"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 8: Food Fair Wholesale Fresh Market -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              Spring Valley, NY
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Food Fair Wholesale Fresh Market
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>175 E Central Ave, Spring Valley, NY 10977</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Food+Fair+Wholesale+Fresh+Market+175+E+Central+Ave+Spring+Valley+NY+10977"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 9: Fruit Tree Farm -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              Copiague, NY
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Fruit Tree Farm
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>1500 Sunrise Hwy, Copiague, NY 11726</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Fruit+Tree+Farm+1500+Sunrise+Hwy+Copiague+NY+11726"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 10: CTown Supermarkets -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              New York, NY
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            CTown Supermarkets
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>1016 St Nicholas Ave, New York, NY 10032</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=CTown+Supermarkets+1016+St+Nicholas+Ave+New+York+NY+10032"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 11: Shop Fair of Mott Haven -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              Bronx, NY
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Shop Fair of Mott Haven
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>228 Brook Ave, Bronx, NY 10454</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Shop+Fair+of+Mott+Haven+228+Brook+Ave+Bronx+NY+10454"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Store 12: Extra Supermarket -->
+      <div class="bg-brand-cardBg border border-brand-cardBorder p-3.5 sm:p-4 flex flex-col justify-between hover:border-neutral-400 hover:shadow-sm transition-all duration-200 group">
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white text-neutral-700 border border-neutral-200">
+              Jersey City, NJ
+            </span>
+            <i class="fa-solid fa-store text-neutral-400 group-hover:text-brand-red transition-colors text-[11px]"></i>
+          </div>
+          <h3 class="font-serif font-bold text-[15px] sm:text-base text-neutral-950 group-hover:text-brand-red transition-colors leading-snug">
+            Extra Supermarket
+          </h3>
+          <p class="text-[11px] text-neutral-600 mt-1 font-medium flex items-start gap-1.5 leading-snug">
+            <i class="fa-solid fa-location-dot text-brand-red text-[11px] mt-0.5 shrink-0"></i>
+            <span>360 Martin Luther King Dr, Jersey City, NJ 07305</span>
+          </p>
+        </div>
+        <div class="pt-2.5 mt-2.5 border-t border-neutral-200/70">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Extra+Supermarket+360+Martin+Luther+King+Dr+Jersey+City+NJ+07305"
+            target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-between w-full text-[11px] font-bold uppercase tracking-wider text-neutral-700 hover:text-brand-red transition-colors group/btn">
+            <span>Directions</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-neutral-100 group-hover/btn:bg-brand-red group-hover/btn:text-white transition-all">
+              <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="scroll-mt-[61px] sm:scroll-mt-[65px] lg:scroll-mt-[73px] py-16 sm:py-24 w-full bg-[#F2ECE1] border-t border-[#E2D7C5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+
+        <!-- Left Landscape Photo -->
+        <div class="lg:col-span-6 rounded-none overflow-hidden shadow-lg border border-neutral-300">
+          <picture class="block w-full h-full">
+            <!-- Mobile layout -->
+            <source media="(max-width: 768px)" srcset="images/about-us/about-us-mobile.webp">
+            <!-- Desktop layout -->
+            <source media="(min-width: 769px)" srcset="images/about-us/about-us-desktop.webp">
+            <!-- Fallback -->
+            <img src="images/about-us/about-us-desktop.webp"
+              alt="Island Queen kitchen staples arranged on a rustic table"
+              class="w-full h-72 sm:h-96 object-cover object-center">
+          </picture>
         </div>
 
-        <h2 class="font-serif text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-neutral-900 leading-tight">
-          A pantry line with <br class="hidden sm:inline">island roots
-        </h2>
+        <!-- Right Editorial Story Text -->
+        <div class="lg:col-span-6 space-y-4">
+          <div>
+            <span class="text-brand-red font-bold text-xs uppercase tracking-widest">About Us</span>
+          </div>
 
-        <p class="text-neutral-700 text-sm sm:text-base leading-relaxed pt-2">
-          Our story is one of embracing tradition. Food is the heartbeat of culture and Island Queen brings the rich culinary heritage of the Caribbean and West Africa direct to your kitchen.
-        </p>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-neutral-900 leading-tight">
+            A pantry line with <br class="hidden sm:inline">island roots
+          </h2>
+
+          <p class="text-neutral-700 text-sm sm:text-base leading-relaxed pt-2">
+            Our story is one of embracing tradition. Food is the heartbeat of culture and Island Queen brings the rich culinary heritage of the Caribbean and West Africa direct to your kitchen.
+          </p>
+        </div>
+
       </div>
-
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="scroll-mt-[61px] sm:scroll-mt-[65px] lg:scroll-mt-[73px] py-16 sm:py-20 bg-[#EFE8DD]/80 border-t border-[#E0D5C7]">
+  <section id="contact" class="scroll-mt-[61px] sm:scroll-mt-[65px] lg:scroll-mt-[73px] py-16 sm:py-20 bg-[#E6DDD0] border-t border-[#D9CDBE]">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
